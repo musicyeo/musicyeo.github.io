@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap">
-    <link rel="preconnect" href="https://images-na.ssl-images-amazon.com" crossorigin>
+    <link rel="preconnect" href="https://images-na.ssl-images-amazon.com">
     <link rel="stylesheet" href="./styles.css">
     <style>
         body { font-family: 'Lato', sans-serif; }
@@ -344,7 +344,7 @@
                             <span class="absolute top-2 left-2 z-20 text-[9px] font-bold uppercase tracking-wider bg-white/90 text-stone-600 px-2 py-0.5 rounded border border-stone-200/70">
                                 ${nicheLabel}
                             </span>
-                            <img src="${p.main_image}" alt="${escapeHtml(p.title)}" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="this.src='https://via.placeholder.com/300?text=Product+Image'">
+                            <img src="${p.main_image}" alt="${escapeHtml(p.title)}" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="this.src='https://via.placeholder.com/300?text=Product+Image'" width="500" height="500">
                         </div>
                         <div class="flex-1 flex flex-col justify-between">
                             <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
