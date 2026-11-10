@@ -10,3 +10,7 @@
 
 # Product sub-pages (wildcard pattern — covers all ASIN sub-directories)
 /:niche/:asin/index.html /:niche/:asin/ 301
+
+# Search page (search.html & search/index.html → canonical /search/)
+/search.html /search/ 301
+/search/index.html /search/ 301
