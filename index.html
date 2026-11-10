@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LivingWithFaye | Curated Essentials for Modern Living</title>
     <meta name="description" content="Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.">
-    <link rel="canonical" href="https://www.livingwithfaye.com/">
+    <link rel="canonical" href="https://livingwithfaye.com/">
 
     <!-- 📣 OPEN GRAPH / FACEBOOK / PINTEREST -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="LivingWithFaye">
-    <meta property="og:url" content="https://www.livingwithfaye.com/">
+    <meta property="og:url" content="https://livingwithfaye.com/">
     <meta property="og:title" content="LivingWithFaye | Curated Essentials for Modern Living">
     <meta property="og:description" content="Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.">
-    <meta property="og:image" content="https://www.livingwithfaye.com/og-image.jpg">
+    <meta property="og:image" content="https://livingwithfaye.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="1200">
     <meta property="og:locale" content="en_US">
 
     <!-- 🐦 TWITTER CARD -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="https://www.livingwithfaye.com/">
+    <meta name="twitter:url" content="https://livingwithfaye.com/">
     <meta name="twitter:title" content="LivingWithFaye | Curated Essentials for Modern Living">
     <meta name="twitter:description" content="Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.">
-    <meta name="twitter:image" content="https://www.livingwithfaye.com/og-image.jpg">
+    <meta name="twitter:image" content="https://livingwithfaye.com/og-image.jpg">
 
     <!-- 🏷️ STRUCTURED DATA (SCHEMA.ORG / JSON-LD) -->
     <script type="application/ld+json">
@@ -32,21 +32,21 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.livingwithfaye.com/#website",
-      "url": "https://www.livingwithfaye.com/",
+      "@id": "https://livingwithfaye.com/#website",
+      "url": "https://livingwithfaye.com/",
       "name": "LivingWithFaye",
       "description": "Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.",
       "publisher": {
         "@type": "Person",
         "name": "Faye",
-        "url": "https://www.livingwithfaye.com/"
+        "url": "https://livingwithfaye.com/"
       }
     },
     {
       "@type": "Person",
-      "@id": "https://www.livingwithfaye.com/#faye",
+      "@id": "https://livingwithfaye.com/#faye",
       "name": "Faye",
-      "url": "https://www.livingwithfaye.com/",
+      "url": "https://livingwithfaye.com/",
       "description": "Curator and writer behind LivingWithFaye, sharing honest personal reviews and mindful living guides."
     }
   ]
@@ -69,6 +69,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap">
     <link rel="preconnect" href="https://images-na.ssl-images-amazon.com">
     <link rel="stylesheet" href="./styles.css">
+
+    <!-- 🛡️ GRACEFUL IMAGE ERROR FALLBACK HANDLER -->
+    <script>
+    function handleImgError(img) {
+        if (!img || img.dataset.errorHandled) return;
+        img.dataset.errorHandled = "true";
+        var isThumb = (img.width > 0 && img.width <= 100) || (img.parentElement && img.parentElement.clientWidth <= 100);
+        var fallback = document.createElement('div');
+        if (isThumb) {
+            fallback.className = 'w-full h-full flex items-center justify-center bg-stone-50 text-stone-300 rounded-lg select-none';
+            fallback.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>';
+        } else {
+            fallback.className = 'w-full h-full flex flex-col items-center justify-center p-6 text-center bg-stone-50 border border-dashed border-stone-200 rounded-2xl select-none';
+            fallback.innerHTML = '<svg class="w-10 h-10 text-stone-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><p class="text-xs font-bold text-stone-700 uppercase tracking-wider">Preview Unavailable</p><p class="text-xs text-stone-500 mt-1 max-w-[240px] leading-relaxed">Certain browsers in private / incognito mode block third-party images from Amazon.</p>';
+        }
+        img.replaceWith(fallback);
+    }
+    </script>
     <style>
         body { font-family: 'Lato', sans-serif; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -116,7 +134,7 @@
             <!-- Left Navigation Menu -->
             <nav class="flex items-center gap-6">
                 <!-- Home -->
-                <a href="./index.html" class="inline-flex items-center text-xs font-bold tracking-widest text-emerald-800 uppercase pb-1 border-b-2 border-emerald-800">
+                <a href="./" class="inline-flex items-center text-xs font-bold tracking-widest text-emerald-800 uppercase pb-1 border-b-2 border-emerald-800">
                     Home
                 </a>
                 
@@ -132,10 +150,10 @@
                     <div class="collections-menu absolute left-0 top-full pt-2 w-56 opacity-0 translate-y-1 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200 z-50">
                         <div class="bg-white rounded-xl shadow-lg border border-stone-200/70 py-2">
                             
-        <a href="./kitchen-organization/index.html" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
+        <a href="./kitchen-organization/" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
             Kitchen Organization
         </a>
-        <a href="./outdoor-camping/index.html" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
+        <a href="./outdoor-camping/" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
             Outdoor Camping
         </a>
                         </div>
@@ -249,10 +267,10 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 
-        <a href="./kitchen-organization/index.html" class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden no-underline">
+        <a href="./kitchen-organization/" class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden no-underline">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51suxhG7ySL.jpg" alt="Kitchen Organization" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51suxhG7ySL.jpg" alt="Kitchen Organization" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-lg leading-snug mb-3 text-center transition-colors group-hover:text-emerald-800">
@@ -264,10 +282,10 @@
                 </div>
             </div>
         </a>
-        <a href="./outdoor-camping/index.html" class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden no-underline">
+        <a href="./outdoor-camping/" class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden no-underline">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51RmYBj6QvL.jpg" alt="Outdoor Camping" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51RmYBj6QvL.jpg" alt="Outdoor Camping" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-lg leading-snug mb-3 text-center transition-colors group-hover:text-emerald-800">
