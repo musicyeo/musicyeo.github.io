@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LivingWithFaye | Curated Essentials for Modern Living</title>
+    <meta name="description" content="Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.">
+    <link rel="canonical" href="https://livingwithfaye.com/">
+
+    <!-- 📣 OPEN GRAPH / FACEBOOK / PINTEREST -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LivingWithFaye">
+    <meta property="og:url" content="https://livingwithfaye.com/">
+    <meta property="og:title" content="LivingWithFaye | Curated Essentials for Modern Living">
+    <meta property="og:description" content="Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.">
+    <meta property="og:image" content="https://livingwithfaye.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="1200">
+    <meta property="og:locale" content="en_US">
+
+    <!-- 🐦 TWITTER CARD -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://livingwithfaye.com/">
+    <meta name="twitter:title" content="LivingWithFaye | Curated Essentials for Modern Living">
+    <meta name="twitter:description" content="Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.">
+    <meta name="twitter:image" content="https://livingwithfaye.com/og-image.jpg">
+
+    <!-- 🏷️ STRUCTURED DATA (SCHEMA.ORG / JSON-LD) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://livingwithfaye.com/#website",
+      "url": "https://livingwithfaye.com/",
+      "name": "LivingWithFaye",
+      "description": "Discover thoughtfully curated living essentials, seasonal gift guides, and practical reviews for an organized home, outdoor adventures, and intentional living.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Faye",
+        "url": "https://livingwithfaye.com/"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://livingwithfaye.com/#faye",
+      "name": "Faye",
+      "url": "https://livingwithfaye.com/",
+      "description": "Curator and writer behind LivingWithFaye, sharing honest personal reviews and mindful living guides."
+    }
+  ]
+}
+    </script>
+    
+    <!-- 🌐 DESKTOP BROWSER TAB REFS -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- 📱 MODERN HIGH-RESOLUTION RETINA DEVICE GRAPHICS -->
+    <link rel="icon" type="image/png" sizes="512x512" href="./android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+
+    <link rel="preload" as="image" href="./bio_photos/bio_01xs.webp" type="image/webp" fetchpriority="high">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap">
+    <link rel="preconnect" href="https://images-na.ssl-images-amazon.com">
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- 🛡️ GRACEFUL IMAGE ERROR FALLBACK HANDLER -->
+    <script>
+    function handleImgError(img) {
+        if (!img || img.dataset.errorHandled) return;
+        img.dataset.errorHandled = "true";
+        var isThumb = (img.width > 0 && img.width <= 100) || (img.parentElement && img.parentElement.clientWidth <= 100);
+        var fallback = document.createElement('div');
+        if (isThumb) {
+            fallback.className = 'w-full h-full flex items-center justify-center bg-stone-50 text-stone-300 rounded-lg select-none';
+            fallback.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>';
+        } else {
+            fallback.className = 'w-full h-full flex flex-col items-center justify-center p-6 text-center bg-stone-50 border border-dashed border-stone-200 rounded-2xl select-none';
+            fallback.innerHTML = '<svg class="w-10 h-10 text-stone-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><p class="text-xs font-bold text-stone-700 uppercase tracking-wider">Preview Unavailable</p><p class="text-xs text-stone-500 mt-1 max-w-[240px] leading-relaxed">Certain browsers in private / incognito mode block third-party images from Amazon.</p>';
+        }
+        img.replaceWith(fallback);
+    }
+    </script>
+    <style>
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        @keyframes tile-elastic-wobble {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            25% {
+                transform: translateY(-8px) translateX(-3px) scale(1.035);
+            }
+            50% {
+                transform: translateY(-6px) translateX(3px) scale(1.045);
+            }
+            75% {
+                transform: translateY(-7px) translateX(-1px) scale(1.045);
+            }
+            100% {
+                transform: translateY(-6px) translateX(0) scale(1.045);
+            }
+        }
+
+        .card-hardware-scale {
+            transform: translateY(0) scale(1);
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
+        }
+        .group:hover.card-hardware-scale {
+            animation: tile-elastic-wobble 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 20;
+        }
+    </style>
+</head>
+<body class="bg-[#faf9f6] text-stone-800 antialiased">
+
+    <!-- Top Bar with Menu on Left -->
+    <header class="bg-white border-b border-stone-200/60 relative">
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-800 to-teal-700"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between border-b border-stone-100">
+            <!-- Left Navigation Menu -->
+            <nav class="flex items-center gap-6">
+                <!-- Home -->
+                <a href="./" class="inline-flex items-center text-xs font-bold tracking-widest text-emerald-800 uppercase pb-1 border-b-2 border-emerald-800">
+                    Home
+                </a>
+                
+                <!-- Collections with Dropdown -->
+                <div class="relative group inline-flex items-center">
+                    <button type="button" class="collections-btn inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-stone-600 hover:text-emerald-800 transition-colors uppercase pb-1 border-b-2 border-transparent group-hover:border-emerald-800 cursor-pointer focus:outline-none" aria-haspopup="true">
+                        <span>Collections</span>
+                        <svg class="collections-arrow w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 text-stone-400 group-hover:text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Panel -->
+                    <div class="collections-menu absolute left-0 top-full pt-2 w-56 opacity-0 translate-y-1 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white rounded-xl shadow-lg border border-stone-200/70 py-2">
+                            
+        <a href="./kitchen-organization/" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
+            Kitchen Organization
+        </a>
+        <a href="./outdoor-camping/" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
+            Outdoor Camping
+        </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Search (opens search page in new window) -->
+                <a href="./search/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-bold tracking-widest text-stone-600 hover:text-emerald-800 transition-colors uppercase pb-1 border-b-2 border-transparent hover:border-emerald-800">
+                    <span>Product Search</span>
+                    <svg class="w-3 h-3 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Option 1: Editorial Split-Hero (Title & Tagline Left, Portrait Slideshow Right - Aligned with About Me max-w-5xl) -->
+        <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- Left Column (7 cols): Typography (Left-aligned with About Me card) -->
+                <div class="md:col-span-7 text-left space-y-5 pr-2 md:pr-4">
+                    <div class="inline-flex items-center gap-2">
+                        <span class="bg-emerald-50 text-emerald-800 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-emerald-200/60">
+                            Welcome
+                        </span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight leading-tight">
+                        LivingWith<span class="text-emerald-800 font-serif italic font-normal">Faye</span>
+                    </h1>
+                    <p class="text-base md:text-lg text-stone-600 font-light leading-relaxed max-w-md">
+                        Thoughtful living, honest recommendations, curated gift ideas, and a genuine love for calm, well-ordered spaces.
+                    </p>
+                    <div class="pt-1 flex flex-wrap items-center gap-3 text-xs text-stone-400 tracking-wider uppercase font-semibold">
+                        <span>Minimalist Home</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Curated Utility</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Authentic Life</span>
+                    </div>
+                </div>
+
+                <!-- Right Column (5 cols): Photo Slideshow Frame (Aspect Ratio 10.5:16, Right-aligned with About Me card) -->
+                <div class="md:col-span-5 flex justify-center md:justify-end">
+                    <div class="w-full max-w-[270px] sm:max-w-[290px] md:max-w-[310px]">
+                        <!-- Elegant Photo Card Container flush right -->
+                        <div id="bio-slideshow-container" class="group relative bg-white rounded-3xl border border-stone-200/80 shadow-lg overflow-hidden select-none aspect-[10.5/16]" style="aspect-ratio: 10.5 / 16; touch-action: pan-y;">
+                            
+                    <img src="./bio_photos/bio_01xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="eager" fetchpriority="high" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100" data-index="0">
+                        <img src="./bio_photos/bio_02xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="eager" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="1">
+                        <img src="./bio_photos/bio_03xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="2">
+                        <img src="./bio_photos/bio_04xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="3">
+                        <img src="./bio_photos/bio_05xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="4">
+                        <img src="./bio_photos/bio_06xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="5">
+                        <img src="./bio_photos/bio_07xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="6">
+                        <img src="./bio_photos/bio_08xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="7">
+                        <img src="./bio_photos/bio_09xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="8">
+                        <img src="./bio_photos/bio_10xs.webp" alt="Autobiography Photo" width="1050" height="1600" loading="lazy" decoding="async" class="bio-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" data-index="9">
+                    <!-- Subtle warm inner border highlight -->
+                    <div class="absolute inset-0 rounded-3xl pointer-events-none ring-1 ring-inset ring-black/10"></div>
+                    
+                    <!-- Translucent Hover Navigation Arrows -->
+                    <button type="button" aria-label="Previous photo" class="bio-prev-btn absolute left-2.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-white/75 hover:bg-white text-stone-700 shadow-md backdrop-blur-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer focus:outline-none">
+                        <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button type="button" aria-label="Next photo" class="bio-next-btn absolute right-2.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-white/75 hover:bg-white text-stone-700 shadow-md backdrop-blur-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer focus:outline-none">
+                        <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    
+                    <!-- Dots indicator -->
+                    <div class="absolute bottom-3 left-0 right-0 z-20 flex justify-center items-center gap-1.5 pointer-events-none">
+                        <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white scale-125 pointer-events-auto cursor-pointer focus:outline-none" data-index="0" aria-label="Slide 1"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="1" aria-label="Slide 2"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="2" aria-label="Slide 3"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="3" aria-label="Slide 4"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="4" aria-label="Slide 5"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="5" aria-label="Slide 6"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="6" aria-label="Slide 7"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="7" aria-label="Slide 8"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="8" aria-label="Slide 9"></button> <button type="button" class="bio-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/50 pointer-events-auto cursor-pointer focus:outline-none" data-index="9" aria-label="Slide 10"></button>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-16">
+
+        <!-- About Me Section -->
+        <section class="mb-20">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-stone-200/60 shadow-sm relative">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-emerald-800 rounded-l-3xl"></div>
+                <h2 class="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
+                    <span class="text-2xl">🌿</span> About Me
+                </h2>
+                <div class="space-y-4">
+                    <p class="text-stone-600 font-light text-base md:text-lg leading-relaxed">I’m Faye, and this is where my love for a calm, well-ordered home comes to life.</p>
+                    <p class="text-stone-600 font-light text-base md:text-lg leading-relaxed">By day, I work as a Quality Assurance Manager in the IT domain, which is a fancy way of saying I have a natural eye for the tiniest details. At home, that professional eye transforms into a deep passion for minimalism and home organization. I absolutely love creating intentional, clutter-free spaces, and I am incredibly meticulous about every single item we bring into our household—especially when curating thoughtful gift ideas and practical essentials for our family and friends. When I am not organizing, you can find me lost in a good book, experimenting with new recipes in the kitchen, interacting with my pet fishes, or finding creative ways to play with and educate my beautiful kids. I also have a deep appreciation for smart technology and how it can make a modern home run more smoothly.</p>
+                    <p class="text-stone-600 font-light text-base md:text-lg leading-relaxed">My husband is the perfect energetic counterweight to my quiet love for indoor order. He is a huge fan of outdoor activities, hitting the gym, and filling our home with music—whether he is singing or playing the guitar, drums, or keyboard. True to his technical expertise in Image Processing, Computer Graphics, Computer Vision, and Pattern Classification, he thinks deeply about everything, almost always analyzing the world around him, even the most trivial daily details!</p>
+                    <p class="text-stone-600 font-light text-base md:text-lg leading-relaxed">LivingWithFaye is a space born out of our shared life. It is a genuine place where we want to share the good, simple things that bring us joy and peace. But to be completely honest and transparent with you, there is a practical side to this space too. With the ever-rising costs of daily life, we hope to earn a little extra income through affiliate commissions when you purchase items we genuinely love and recommend.</p>
+                    <p class="text-stone-600 font-light text-base md:text-lg leading-relaxed">Thank you for stepping into our world, and we hope our reflections bring a little more ease, utility, and comfort to your daily routines.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Niche Collections Section -->
+        <section>
+            <div class="text-center mb-12">
+                <p class="text-emerald-800 font-bold tracking-widest uppercase text-xs mb-3">Browse</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 tracking-tight mb-4">My Curated Niche Collections</h2>
+                <p class="text-base text-stone-500 font-light max-w-xl mx-auto leading-relaxed">
+                    Hand-picked essentials, practical everyday upgrades, and thoughtful gift ideas for every season.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                
+        <a href="./kitchen-organization/" class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden no-underline">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51suxhG7ySL.jpg" alt="Kitchen Organization" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-lg leading-snug mb-3 text-center transition-colors group-hover:text-emerald-800">
+                        Kitchen Organization
+                    </h3>
+                    <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                        Explore Collection →
+                    </span>
+                </div>
+            </div>
+        </a>
+        <a href="./outdoor-camping/" class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden no-underline">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51RmYBj6QvL.jpg" alt="Outdoor Camping" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-lg leading-snug mb-3 text-center transition-colors group-hover:text-emerald-800">
+                        Outdoor Camping
+                    </h3>
+                    <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                        Explore Collection →
+                    </span>
+                </div>
+            </div>
+        </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-stone-200/80 mt-16 py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-4">
+            <p class="font-serif text-xl italic text-stone-900 tracking-tight">LivingWithFaye</p>
+            <p class="text-xs text-stone-400 max-w-2xl mx-auto leading-relaxed">
+                &copy; 2026 LivingWithFaye. All Rights Reserved. As an Amazon Associate, I earn from qualifying purchases. 
+                All other trademarks, logos, brand names, and images are the property of their respective owners and are used for identification purposes only.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Collections Dropdown Mobile Tap & Click Toggle
+        (function() {
+            const btn = document.querySelector('.collections-btn');
+            const menu = document.querySelector('.collections-menu');
+            const arrow = document.querySelector('.collections-arrow');
+            if (!btn || !menu) return;
+
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = !menu.classList.contains('invisible');
+                if (isOpen) {
+                    menu.classList.add('opacity-0', 'translate-y-1', 'invisible');
+                    menu.classList.remove('opacity-100', 'translate-y-0', 'visible');
+                    if (arrow) arrow.classList.remove('rotate-180');
+                } else {
+                    menu.classList.remove('opacity-0', 'translate-y-1', 'invisible');
+                    menu.classList.add('opacity-100', 'translate-y-0', 'visible');
+                    if (arrow) arrow.classList.add('rotate-180');
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.add('opacity-0', 'translate-y-1', 'invisible');
+                    menu.classList.remove('opacity-100', 'translate-y-0', 'visible');
+                    if (arrow) arrow.classList.remove('rotate-180');
+                }
+            });
+        })();
+    </script>
+
+    
+    <script>
+        (function() {
+            const container = document.getElementById('bio-slideshow-container') || document.querySelector('.bio-slide')?.parentElement;
+            const slides = document.querySelectorAll('.bio-slide');
+            const dots = document.querySelectorAll('.bio-dot');
+            const prevBtn = document.querySelector('.bio-prev-btn');
+            const nextBtn = document.querySelector('.bio-next-btn');
+            if (!slides || slides.length <= 1) return;
+
+            let currentIndex = 0;
+            const intervalTime = 5000;
+            let timer = null;
+
+            function showSlide(index) {
+                const targetIndex = (index + slides.length) % slides.length;
+
+                // Pre-warm the target slide and the one immediately after so cross-fade is seamless
+                const targetSlide = slides[targetIndex];
+                if (targetSlide && targetSlide.loading === 'lazy') {
+                    targetSlide.loading = 'eager';
+                }
+                const aheadSlide = slides[(targetIndex + 1) % slides.length];
+                if (aheadSlide && aheadSlide.loading === 'lazy') {
+                    aheadSlide.loading = 'eager';
+                }
+
+                slides[currentIndex].classList.remove('opacity-100');
+                slides[currentIndex].classList.add('opacity-0');
+                if (dots.length > currentIndex) {
+                    dots[currentIndex].classList.remove('bg-white', 'scale-125');
+                    dots[currentIndex].classList.add('bg-white/50');
+                }
+
+                currentIndex = targetIndex;
+
+                slides[currentIndex].classList.remove('opacity-0');
+                slides[currentIndex].classList.add('opacity-100');
+                if (dots.length > currentIndex) {
+                    dots[currentIndex].classList.remove('bg-white/50');
+                    dots[currentIndex].classList.add('bg-white', 'scale-125');
+                }
+            }
+
+            function nextSlide() {
+                showSlide(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentIndex - 1);
+            }
+
+            function resetTimer() {
+                if (timer) clearInterval(timer);
+                timer = setInterval(nextSlide, intervalTime);
+            }
+
+            // Start auto timer
+            resetTimer();
+
+            // Arrow button navigation
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.blur();
+                    nextSlide();
+                    resetTimer();
+                });
+            }
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.blur();
+                    prevSlide();
+                    resetTimer();
+                });
+            }
+
+            // Dot indicator navigation
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.blur();
+                    showSlide(idx);
+                    resetTimer();
+                });
+            });
+
+            // Pause on container hover so user can comfortably inspect photos
+            if (container) {
+                container.addEventListener('mouseenter', function() {
+                    if (timer) clearInterval(timer);
+                });
+                container.addEventListener('mouseleave', function() {
+                    resetTimer();
+                });
+
+                let touchStartX = 0;
+                let touchStartY = 0;
+                let touchEndX = 0;
+                let touchEndY = 0;
+
+                container.addEventListener('touchstart', function(e) {
+                    if (e.changedTouches && e.changedTouches.length > 0) {
+                        touchStartX = e.changedTouches[0].clientX;
+                        touchStartY = e.changedTouches[0].clientY;
+                    }
+                }, { passive: true });
+
+                container.addEventListener('touchend', function(e) {
+                    if (e.changedTouches && e.changedTouches.length > 0) {
+                        touchEndX = e.changedTouches[0].clientX;
+                        touchEndY = e.changedTouches[0].clientY;
+                        handleSwipe();
+                    }
+                }, { passive: true });
+
+                function handleSwipe() {
+                    const diffX = touchEndX - touchStartX;
+                    const diffY = touchEndY - touchStartY;
+                    const minSwipeDistance = 35; // Minimum horizontal px to count as swipe
+
+                    // Only count horizontal swipe if horizontal displacement exceeds vertical displacement
+                    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
+                        if (diffX < 0) {
+                            // Swiped left -> advance to next
+                            nextSlide();
+                        } else {
+                            // Swiped right -> go to previous
+                            prevSlide();
+                        }
+                        resetTimer();
+                    }
+                }
+            }
+        })();
+    </script>
+
+</body>
+</html>
