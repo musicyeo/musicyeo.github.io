@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -69,6 +69,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap">
     <link rel="preconnect" href="https://images-na.ssl-images-amazon.com">
     <link rel="stylesheet" href="../styles.css">
+
+    <!-- 🛡️ GRACEFUL IMAGE ERROR FALLBACK HANDLER -->
+    <script>
+    function handleImgError(img) {
+        if (!img || img.dataset.errorHandled) return;
+        img.dataset.errorHandled = "true";
+        var isThumb = (img.width > 0 && img.width <= 100) || (img.parentElement && img.parentElement.clientWidth <= 100);
+        var fallback = document.createElement('div');
+        if (isThumb) {
+            fallback.className = 'w-full h-full flex items-center justify-center bg-stone-50 text-stone-300 rounded-lg select-none';
+            fallback.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>';
+        } else {
+            fallback.className = 'w-full h-full flex flex-col items-center justify-center p-6 text-center bg-stone-50 border border-dashed border-stone-200 rounded-2xl select-none';
+            fallback.innerHTML = '<svg class="w-10 h-10 text-stone-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><p class="text-xs font-bold text-stone-700 uppercase tracking-wider">Preview Unavailable</p><p class="text-xs text-stone-500 mt-1 max-w-[240px] leading-relaxed">Certain browsers in private / incognito mode block third-party images from Amazon.</p>';
+        }
+        img.replaceWith(fallback);
+    }
+    </script>
     <style>
         body { font-family: 'Lato', sans-serif; }
         h1, h2 { font-family: 'Playfair Display', serif; }
@@ -105,23 +123,6 @@
             z-index: 20;
         }
     </style>
-    <!-- 🛡️ GRACEFUL IMAGE ERROR FALLBACK HANDLER -->
-    <script>
-    function handleImgError(img) {
-        if (!img || img.dataset.errorHandled) return;
-        img.dataset.errorHandled = "true";
-        var isThumb = (img.width > 0 && img.width <= 100) || (img.parentElement && img.parentElement.clientWidth <= 100);
-        var fallback = document.createElement('div');
-        if (isThumb) {
-            fallback.className = 'w-full h-full flex items-center justify-center bg-stone-50 text-stone-300 rounded-lg select-none';
-            fallback.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>';
-        } else {
-            fallback.className = 'w-full h-full flex flex-col items-center justify-center p-6 text-center bg-stone-50 border border-dashed border-stone-200 rounded-2xl select-none';
-            fallback.innerHTML = '<svg class="w-10 h-10 text-stone-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><p class="text-xs font-bold text-stone-700 uppercase tracking-wider">Preview Unavailable</p><p class="text-xs text-stone-500 mt-1 max-w-[240px] leading-relaxed">Certain browsers in private / incognito mode block third-party images from Amazon.</p>';
-        }
-        img.replaceWith(fallback);
-    }
-    </script>
 </head>
 <body class="bg-[#faf9f6] text-stone-800 antialiased">
 
@@ -149,6 +150,9 @@
                     <div class="collections-menu absolute left-0 top-full pt-2 w-56 opacity-0 translate-y-1 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200 z-50">
                         <div class="bg-white rounded-xl shadow-lg border border-stone-200/70 py-2">
                             
+        <a href="../trending-essentials/" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
+            Trending Essentials
+        </a>
         <a href="../kitchen-organization/" class="block px-4 py-2.5 text-xs text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors uppercase tracking-wider font-semibold">
             Kitchen Organization
         </a>
@@ -189,7 +193,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41dBpgm8IML.jpg" alt="Drawer Organizer for Kitchen Organization - Expandable Bamboo Silverware Drawer Organizer with Removable Knife Block, Bamboo Cutlery, Non-Slip Utensil Organizer with 7-Slot Knife Storage for Flatware" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51fyE0h171L.jpg" alt="Drawer Organizer for Kitchen Organization - Expandable Bamboo Silverware Drawer Organizer with Removable Knife Block, Bamboo Cutlery, Non-Slip Utensil Organizer with 7-Slot Knife Storage for Flatware" width="500" height="500" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -211,7 +215,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41C5Y%20o6PmL.jpg" alt="ROYAL CRAFT WOOD Luxury Bamboo Utensil Rack and Silverware Organizer, Kitchen Drawer Organizer - Utensil Holder and Cutlery Tray with Grooved Drawer Dividers for Flatware 7 Slot, Natural" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/415XZJNaASL.jpg" alt="ROYAL CRAFT WOOD Luxury Bamboo Utensil Rack and Silverware Organizer, Kitchen Drawer Organizer - Utensil Holder and Cutlery Tray with Grooved Drawer Dividers for Flatware 7 Slot, Natural" width="500" height="500" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -233,11 +237,11 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51MoSGD2qnL.jpg" alt="Mueller The Real Original Pro Vegetable Chopper & Mandoline Slicer, 10-in-1" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51WhISB-BYL.jpg" alt="Mueller Pro-Series 10-in-1, 8 Blade Vegetable Chopper, Onion Mincer, Cutter, Dicer, Egg Slicer with Container, French Fry Cutter Potatoe Slicer, Home Essentials & Kitchen Gadgets, Salad Chopper" width="500" height="500" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Mueller The Real Original Pro Vegetable Chopper & Mandoline Slicer, 10-in-1
+                        Mueller Pro-Series 10-in-1, 8 Blade Vegetable Chopper, Onion Mincer, Cutter, Dicer, Egg Slicer with Container, French Fry Cutter Potatoe Slicer, Home Essentials & Kitchen Gadgets, Salad Chopper
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
@@ -255,7 +259,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51ph2b0nkLL.jpg" alt="ClearSpace Clear Plastic Storage Bins, Pantry & Cabinet Organizer, 6 Pack" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41l2QwlcmLL.jpg" alt="ClearSpace Clear Plastic Storage Bins, Pantry & Cabinet Organizer, 6 Pack" width="500" height="500" loading="eager" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -277,7 +281,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51uf6ramyQL.jpg" alt="Progressive ProKeeper Baker's Airtight Kitchen Storage Canister Container Set for Flour, Sugar & More, Keeps Ingredients Fresh, with Accessories (Multicolor, 6- Piece)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41poOsvqnYL.jpg" alt="Progressive ProKeeper Baker's Airtight Kitchen Storage Canister Container Set for Flour, Sugar & More, Keeps Ingredients Fresh, with Accessories (Multicolor, 6- Piece)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -299,7 +303,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51Kwly69pyL.jpg" alt="HOLDN' STORAGE Heavy-Duty Pull Out Cabinet Organizer, 14"W x 21"D" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51iOhCQLyML.jpg" alt="HOLDN' STORAGE Heavy-Duty Pull Out Cabinet Organizer, 14"W x 21"D" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -321,11 +325,11 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51cPhQ%20iVSL.jpg" alt="PIZZA PACK The Perfect Reusable Pizza Storage Container with 5 Microwavable Serving Trays - BPA-Free Adjustable Pizza Slice Container to Organize & Save Space, Orange 3 pk" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51OcYOu4gcL.jpg" alt="PIZZA PACK The Perfect Reusable Pizza Storage Container with 5 Microwavable Serving Trays - BPA-Free Adjustable Pizza Slice Container to Organize & Save Space, 3 Pack, Black" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        PIZZA PACK The Perfect Reusable Pizza Storage Container with 5 Microwavable Serving Trays - BPA-Free Adjustable Pizza Slice Container to Organize & Save Space, Orange 3 pk
+                        PIZZA PACK The Perfect Reusable Pizza Storage Container with 5 Microwavable Serving Trays - BPA-Free Adjustable Pizza Slice Container to Organize & Save Space, 3 Pack, Black
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
@@ -343,7 +347,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/519f77ymGcL.jpg" alt="200 Pack Fridge Magnets Refrigerator Magnets, Strong Magnetic Clips Heavy Duty, Magnet Clips for Whiteboard, Magnets for Fridge Locker Office Accessories (Silver)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/516YsIerYOL.jpg" alt="200 Pack Fridge Magnets Refrigerator Magnets, Strong Magnetic Clips Heavy Duty, Magnet Clips for Whiteboard, Magnets for Fridge Locker Office Accessories (Silver)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -365,7 +369,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51JpEW2bAcL.jpg" alt="Deco Brothers Stackable Under Sink Organizer with Sliding Basket, Chrome" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/417heQVhzzL.jpg" alt="Deco Brothers Stackable Under Sink Organizer with Sliding Basket, Chrome" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -387,51 +391,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51kgp3oRSTL.jpg" alt="OXO Good Grips 5-Piece POP Container Set" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        OXO Good Grips 5-Piece POP Container Set
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B07TD9QT97/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B07TD9QT97/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51bdE5A%20FQL.jpg" alt="SUPERJARE Kitchen Bakers Rack with Power Outlet, Coffee Bar Table 4 Tiers, Kitchen Microwave Stand with 6 S-shaped Hooks, Storage Shelf Rack for Spices, Pots and Pans - Rustic Brown" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        SUPERJARE Kitchen Bakers Rack with Power Outlet, Coffee Bar Table 4 Tiers, Kitchen Microwave Stand with 6 S-shaped Hooks, Storage Shelf Rack for Spices, Pots and Pans - Rustic Brown
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B09PFY63JQ/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B09PFY63JQ/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41MaR9CDrBL.jpg" alt="Kitchen Utensil Set-Silicone Cooking Utensils-33 Kitchen Gadgets & Spoons for Nonstick Cookware-Silicone and Stainless Steel Spatula Set-Best Kitchen Tools, Useful Pots (Khaki)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51N66fKt83L.jpg" alt="Kitchen Utensil Set-Silicone Cooking Utensils-33 Kitchen Gadgets & Spoons for Nonstick Cookware-Silicone and Stainless Steel Spatula Set-Best Kitchen Tools, Useful Pots (Khaki)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -453,183 +413,51 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51o-iWD5K8L.jpg" alt="Rotary Cheese Grater Hand Crank, Vegetable Shredder - Sea Foam & Gold" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41A-1rFWPVL.jpg" alt="SUPERJARE Kitchen Bakers Rack with Power Outlet, Coffee Bar Table 4 Tiers, Kitchen Microwave Stand with 6 S-shaped Hooks, Storage Shelf Rack for Spices, Pots and Pans - Rustic Brown" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Rotary Cheese Grater Hand Crank, Vegetable Shredder - Sea Foam & Gold
+                        SUPERJARE Kitchen Bakers Rack with Power Outlet, Coffee Bar Table 4 Tiers, Kitchen Microwave Stand with 6 S-shaped Hooks, Storage Shelf Rack for Spices, Pots and Pans - Rustic Brown
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
                             Read Our Deep Dive Review
                         </span>
-                        <a href="https://www.amazon.com/dp/B0DTRZDJ9N/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                        <a href="https://www.amazon.com/dp/B09PFY63JQ/?tag=livingwithfay-20" target="_blank" rel="noopener" 
                            class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
                             Buy Directly on Amazon
                         </a>
                     </div>
                 </div>
             </div>
-            <a href="./B0DTRZDJ9N/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+            <a href="./B09PFY63JQ/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
         </div>
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41qmBZIlHaL.jpg" alt="Joseph Joseph Nest 5 Compact Stacking Utensils kitchen tool set with magnetic storage stand, organization, dishwasher safe - Dark Gray/Stainless Steel" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51xvVHLQi5L.jpg" alt="OXO Good Grips 5-Piece POP Container Set" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Joseph Joseph Nest 5 Compact Stacking Utensils kitchen tool set with magnetic storage stand, organization, dishwasher safe - Dark Gray/Stainless Steel
+                        OXO Good Grips 5-Piece POP Container Set
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
                             Read Our Deep Dive Review
                         </span>
-                        <a href="https://www.amazon.com/dp/B07CNCNYG5/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                        <a href="https://www.amazon.com/dp/B07TD9QT97/?tag=livingwithfay-20" target="_blank" rel="noopener" 
                            class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
                             Buy Directly on Amazon
                         </a>
                     </div>
                 </div>
             </div>
-            <a href="./B07CNCNYG5/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+            <a href="./B07TD9QT97/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
         </div>
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41I9RbXineL.jpg" alt="Mixing Bowls with Airtight Lids Set, 26PCS Stainless Steel Khaki Bowls with Grater Attachments, Non-Slip Bottoms & Kitchen Gadgets Set, Size 7, 4, 2.5, 2.0,1.5, 1QT, Great for Mixing & Serving" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Mixing Bowls with Airtight Lids Set, 26PCS Stainless Steel Khaki Bowls with Grater Attachments, Non-Slip Bottoms & Kitchen Gadgets Set, Size 7, 4, 2.5, 2.0,1.5, 1QT, Great for Mixing & Serving
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B0BWHJ1FNK/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B0BWHJ1FNK/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41eIPkR4GfL.jpg" alt="Gourmet Easy Meat Tenderizer Tool Love Heart Design, Lifetime Replacement" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Gourmet Easy Meat Tenderizer Tool Love Heart Design, Lifetime Replacement
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B0BDLN6JDJ/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B0BDLN6JDJ/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/31GVCKnre4L.jpg" alt="OXO Good Grips Stainless Steel Rotating Utensil Holder" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        OXO Good Grips Stainless Steel Rotating Utensil Holder
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B003M8GMYA/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B003M8GMYA/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41FLDVWMqaL.jpg" alt="Aufworld Magnetic Spice Rack for Refrigerator, 5 Pack Magnetic Shelf, Moveable Magnetic Fridge Organizer with an 8-Hook Rack, Seasoning Organizer for Kitchen Organization (Extra with 8 Hooks)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Aufworld Magnetic Spice Rack for Refrigerator, 5 Pack Magnetic Shelf, Moveable Magnetic Fridge Organizer with an 8-Hook Rack, Seasoning Organizer for Kitchen Organization (Extra with 8 Hooks)
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B0FD3H5KMN/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B0FD3H5KMN/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51JxQG4al4L.jpg" alt="Astercook Knife Set for Kitchen with Block and Sharpener 15pcs German" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Astercook Knife Set for Kitchen with Block and Sharpener 15pcs German
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B0C1YBPJ43/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B0C1YBPJ43/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51tqz18SECL.jpg" alt="Godboat 2-Tier Dish Drying Rack - Dish Rack with Auto Drain-to-Sink & Mat" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Godboat 2-Tier Dish Drying Rack - Dish Rack with Auto Drain-to-Sink & Mat
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B09XXNLNTT/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B09XXNLNTT/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41IB9Hr6V4L.jpg" alt="HOSHANHO Magnetic Knife Strips, Magnetic Knife Holder for Wall 16 Inch" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/31Hz7n2eauL.jpg" alt="HOSHANHO Magnetic Knife Strips, Magnetic Knife Holder for Wall 16 Inch" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -651,29 +479,161 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51b3-vAsvqL.jpg" alt="Astercook Bamboo Cutting Boards for Kitchen" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51jJYemQK6L.jpg" alt="Rotary Cheese Grater Hand Crank, Vegetable Shredder - Sea Foam & Gold" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Astercook Bamboo Cutting Boards for Kitchen
+                        Rotary Cheese Grater Hand Crank, Vegetable Shredder - Sea Foam & Gold
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
                             Read Our Deep Dive Review
                         </span>
-                        <a href="https://www.amazon.com/dp/B0FH6YL3XC/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                        <a href="https://www.amazon.com/dp/B0DTRZDJ9N/?tag=livingwithfay-20" target="_blank" rel="noopener" 
                            class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
                             Buy Directly on Amazon
                         </a>
                     </div>
                 </div>
             </div>
-            <a href="./B0FH6YL3XC/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+            <a href="./B0DTRZDJ9N/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
         </div>
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/518-8nQ8RiL.jpg" alt="JASIWAY Dish Drying Rack In Sink, Dish Drainer with Cup and Utensil Holder" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51gFGWu8CCL.jpg" alt="Mixing Bowls with Airtight Lids Set, 26PCS Stainless Steel Khaki Bowls with Grater Attachments, Non-Slip Bottoms & Kitchen Gadgets Set, Size 7, 4, 2.5, 2.0,1.5, 1QT, Great for Mixing & Serving" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        Mixing Bowls with Airtight Lids Set, 26PCS Stainless Steel Khaki Bowls with Grater Attachments, Non-Slip Bottoms & Kitchen Gadgets Set, Size 7, 4, 2.5, 2.0,1.5, 1QT, Great for Mixing & Serving
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B0BWHJ1FNK/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B0BWHJ1FNK/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/31tDavCmJkL.jpg" alt="Joseph Joseph Nest 5 Compact Stacking Utensils kitchen tool set with magnetic storage stand, organization, dishwasher safe - Dark Gray/Stainless Steel" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        Joseph Joseph Nest 5 Compact Stacking Utensils kitchen tool set with magnetic storage stand, organization, dishwasher safe - Dark Gray/Stainless Steel
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B07CNCNYG5/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B07CNCNYG5/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/31R1vZfTtbL.jpg" alt="OXO Good Grips Stainless Steel Rotating Utensil Holder" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        OXO Good Grips Stainless Steel Rotating Utensil Holder
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B003M8GMYA/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B003M8GMYA/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/417qPLCzukL.jpg" alt="Astercook Knife Set for Kitchen with Block and Sharpener 15pcs German" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        Astercook Knife Set for Kitchen with Block and Sharpener 15pcs German
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B0C1YBPJ43/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B0C1YBPJ43/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51JAhEHpTaL.jpg" alt="Magnetic Spice Rack for Refrigerator, 5 Pack Magnetic Shelf, Moveable Magnetic Fridge Organizer with an 8-Hook Rack, Seasoning Organizer for Kitchen Organization (Extra with 8 Hooks)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        Magnetic Spice Rack for Refrigerator, 5 Pack Magnetic Shelf, Moveable Magnetic Fridge Organizer with an 8-Hook Rack, Seasoning Organizer for Kitchen Organization (Extra with 8 Hooks)
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B0FD3H5KMN/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B0FD3H5KMN/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51yHYaJzk%20L.jpg" alt="2-Tier Dish Drying Rack - Dish Rack with Auto Drain-to-Sink & Mat" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        2-Tier Dish Drying Rack - Dish Rack with Auto Drain-to-Sink & Mat
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B09XXNLNTT/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B09XXNLNTT/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51yXfQ7JsWL.jpg" alt="JASIWAY Dish Drying Rack In Sink, Dish Drainer with Cup and Utensil Holder" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -695,7 +655,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51eC0joL5KL.jpg" alt="2 Set Magnetic Shelf for Refrigerator with Wood Lid, Fruit Potato & Onion Storage Bins, Pantry Organizers & Storage, Large Container Magnetic Spice Rack for Refrigerator, Kitchen Counter, Cabinet" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51Oo6gIGOFL.jpg" alt="2 Set Magnetic Shelf for Refrigerator with Wood Lid, Fruit Potato & Onion Storage Bins, Pantry Organizers & Storage, Large Container Magnetic Spice Rack for Refrigerator, Kitchen Counter, Cabinet" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -717,51 +677,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41RPZYTyTxL.jpg" alt="JayRex Kitchen Countertop Organizer 3-Tier Corner Shelf, Rustic Brown" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        JayRex Kitchen Countertop Organizer 3-Tier Corner Shelf, Rustic Brown
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B0B7SDRMXW/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B0B7SDRMXW/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51zxebNd11L.jpg" alt="Cooking Utensils Set,18-Piece Kitchen Utensils and Knife Set,Khiki" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Cooking Utensils Set,18-Piece Kitchen Utensils and Knife Set,Khiki
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B0BDFB55B3/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B0BDFB55B3/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51BuzuX%20qRL.jpg" alt="6 Pack Wire Baskets for Pantry Organization and Storage, Kitchen Organizer, 2 XXLarge & 2 XLarge & 2 Large" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51BBeQ9HeBL.jpg" alt="6 Pack Wire Baskets for Pantry Organization and Storage, Kitchen Organizer, 2 XXLarge & 2 XLarge & 2 Large" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -783,29 +699,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41FAr3cpMTL.jpg" alt="Utensil Holder for Countertop with Lid, Plastic Silverware Tray for Drawer, 5 Compartments Flatware Organizer, White" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Utensil Holder for Countertop with Lid, Plastic Silverware Tray for Drawer, 5 Compartments Flatware Organizer, White
-                    </h3>
-                    <div class="space-y-2 mt-auto">
-                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
-                            Read Our Deep Dive Review
-                        </span>
-                        <a href="https://www.amazon.com/dp/B08V56N1ZG/?tag=livingwithfay-20" target="_blank" rel="noopener" 
-                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
-                            Buy Directly on Amazon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a href="./B08V56N1ZG/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
-        </div>
-        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
-            <div class="flex flex-col h-full">
-                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51y8IGIGqNL.jpg" alt="Under Sink Organizer, 2 Tier Under Sink Organizers and Storage, Adjustable Height, Slide out Metal Cabinet Organizers, Pull out Cabinet Storage Drawer Shelf for Kitchen Bathroom (White, 2 Pack)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51ctCEDA2PL.jpg" alt="Under Sink Organizer, 2 Tier Under Sink Organizers and Storage, Adjustable Height, Slide out Metal Cabinet Organizers, Pull out Cabinet Storage Drawer Shelf for Kitchen Bathroom (White, 2 Pack)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -827,11 +721,33 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41P1am8hycL.jpg" alt="2 Pack Expandable Pull Out Cabinet Organizer 21"Deep With Raising Pad for Framed Cabinets,Upgrade 3 Slide Rails Slide Out Drawers,Roll Out Shelves Adhesive,Adjustable Width 12.05"-20.4" White" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/517soqKc0lL.jpg" alt="JayRex Kitchen Countertop Organizer 3-Tier Corner Shelf, Rustic Brown" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        2 Pack Expandable Pull Out Cabinet Organizer 21"Deep With Raising Pad for Framed Cabinets,Upgrade 3 Slide Rails Slide Out Drawers,Roll Out Shelves Adhesive,Adjustable Width 12.05"-20.4" White
+                        JayRex Kitchen Countertop Organizer 3-Tier Corner Shelf, Rustic Brown
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B0B7SDRMXW/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B0B7SDRMXW/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51r99-Ew0mL.jpg" alt="2 Pack Expandable Pull Out Cabinet Organizer, Full Extension" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        2 Pack Expandable Pull Out Cabinet Organizer, Full Extension
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
@@ -849,7 +765,51 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51bZvtGyymL.jpg" alt="KOCWELL Bag Organizer and Plastic Wrap Dispenser with Cutter, 6 In 1 Bamboo Foil and Plastic Wrap Organizer for Kitchen Drawer, Food Storage Bag Organizer for Gallon,Quart,Sandwich,Snack(Yellow)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51Hz-oSQ1vL.jpg" alt="Astercook Bamboo Cutting Boards for Kitchen" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        Astercook Bamboo Cutting Boards for Kitchen
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B0FH6YL3XC/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B0FH6YL3XC/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41SmqNAc1CL.jpg" alt="Utensil Holder for Countertop with Lid, Plastic Silverware Tray for Drawer, 5 Compartments Flatware Organizer, White" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        Utensil Holder for Countertop with Lid, Plastic Silverware Tray for Drawer, 5 Compartments Flatware Organizer, White
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B08V56N1ZG/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B08V56N1ZG/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41R79jqjKeL.jpg" alt="KOCWELL Bag Organizer and Plastic Wrap Dispenser with Cutter, 6 In 1 Bamboo Foil and Plastic Wrap Organizer for Kitchen Drawer, Food Storage Bag Organizer for Gallon,Quart,Sandwich,Snack(Yellow)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -871,7 +831,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41S4OfZuX9L.jpg" alt="Large Dish Drying Rack, Expandable Dish Rack for Kitchen Counter, 304 Stainless Steel Space Saving Dish Drainer with Multifunctional Flip Up Pegs" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51Q956OzT-L.jpg" alt="Large Dish Drying Rack, Expandable Dish Rack for Kitchen Counter, 304 Stainless Steel Space Saving Dish Drainer with Multifunctional Flip Up Pegs" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -893,7 +853,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51LUOF23j2L.jpg" alt="8 Pack Drawer Organizer for Kitchen Gadgets, Large Clear Plastic Drawer Divider for Kitchen Accessories, Bathroom Organizers and Storage, Home Essentials for Makeup and Vanity Accessories" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41OBe%20%20MuOL.jpg" alt="8 Pack Drawer Organizer for Kitchen Gadgets, Large Clear Plastic Drawer Divider for Kitchen Accessories, Bathroom Organizers and Storage, Home Essentials for Makeup and Vanity Accessories" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -915,7 +875,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51KPXOMMv%20L.jpg" alt="Under Sink Organizer, 2 Tier Pull out Cabinet Organizer Baskets with Mesh Sliding Drawers, Slide out Storage Shelf for Home, Kitchen, Bathroom, Pantry, Office Cabinet, Countertop(1 Pack)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51Ni9mwv9mL.jpg" alt="Under Sink Organizer, 2 Tier Pull out Cabinet Organizer Baskets with Mesh Sliding Drawers, Slide out Storage Shelf for Home, Kitchen, Bathroom, Pantry, Office Cabinet, Countertop(1 Pack)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -937,11 +897,11 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51bG8rMCAWL.jpg" alt="DALSHABET 9 IN1 Bamboo Storage Bag Drawer Organizer with Cutter, Foil and Plastic Wrap Dispenser for Kitchen Storage Compatible with All Brands Gallon, Quart, Sandwich & Snack Size Bags - Black" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41XXN9ZT51L.jpg" alt="DALSHABET 9 in 1 Bamboo Kitchen Drawer Bag Organizer with Cutter, Black" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        DALSHABET 9 IN1 Bamboo Storage Bag Drawer Organizer with Cutter, Foil and Plastic Wrap Dispenser for Kitchen Storage Compatible with All Brands Gallon, Quart, Sandwich & Snack Size Bags - Black
+                        DALSHABET 9 in 1 Bamboo Kitchen Drawer Bag Organizer with Cutter, Black
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
@@ -959,7 +919,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/519MoP02D3L.jpg" alt="KitchenArt Spice Rack, Select-A-Spice Auto-Measure Rotating Spice Rack, White, 12 Compartments" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51zYxOnvNwL.jpg" alt="KitchenArt Spice Rack, Select-A-Spice Auto-Measure Rotating Spice Rack, White, 12 Compartments" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -981,7 +941,7 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51xBL7RBewL.jpg" alt="Cereal Containers Storage Set (4L / 135.2oz), 8PCS Airtight Food Storage Containers with Lids, Cereal Dispensers for Kitchen Pantry Organization and Storage with Pour Spout, 20 Labels, Marker" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/514mjIkix9L.jpg" alt="Cereal Containers Storage Set (4L / 135.2oz), 8PCS Airtight Food Storage Containers with Lids, Cereal Dispensers for Kitchen Pantry Organization and Storage with Pour Spout, 20 Labels, Marker" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -1003,11 +963,11 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/51lQcJsZDBL.jpg" alt="Extra Large Kitchen Utensil Holder Countertop with Removable Divider" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51Y0BeyW4%20L.jpg" alt="Soporte para utensilios de cocina extra grande con divisor extrable" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Extra Large Kitchen Utensil Holder Countertop with Removable Divider
+                        Soporte para utensilios de cocina extra grande con divisor extrable
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
@@ -1025,7 +985,29 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/416cnHXwM5L.jpg" alt="Extra Large Utensil Holder Countertop for Kitchen Counter,Wood,Black" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51sq3aLSvuL.jpg" alt="2 Pack Expandable Food Storage Container Lid Organizers, 22" Pots and Pans Organizer Under Cabinet with 9 Adjustable Dividers Pot and Pan Lid Holders Rack Inside Cabinet(White)" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        2 Pack Expandable Food Storage Container Lid Organizers, 22" Pots and Pans Organizer Under Cabinet with 9 Adjustable Dividers Pot and Pan Lid Holders Rack Inside Cabinet(White)
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B0FJ2BRTT6/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B0FJ2BRTT6/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41AFFpPp5QL.jpg" alt="Extra Large Utensil Holder Countertop for Kitchen Counter,Wood,Black" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
@@ -1047,24 +1029,46 @@
         <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
             <div class="flex flex-col h-full">
                 <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41CNHz1afPL.jpg" alt="Magheo 2 Pack Expandable Food Storage Container Lid Organizers, 22" Pots and Pans Organizer Under Cabinet with 9 Adjustable Dividers Pot and Pan Lid Holders Rack Inside Cabinet(White)" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" width="500" height="500" onerror="handleImgError(this)">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/516l0QpiVTL.jpg" alt="Gourmet Easy Meat Tenderizer Tool Love Heart Design, Lifetime Replacement" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
                 </div>
                 <div class="flex-1 flex flex-col justify-between">
                     <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
-                        Magheo 2 Pack Expandable Food Storage Container Lid Organizers, 22" Pots and Pans Organizer Under Cabinet with 9 Adjustable Dividers Pot and Pan Lid Holders Rack Inside Cabinet(White)
+                        Gourmet Easy Meat Tenderizer Tool Love Heart Design, Lifetime Replacement
                     </h3>
                     <div class="space-y-2 mt-auto">
                         <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
                             Read Our Deep Dive Review
                         </span>
-                        <a href="https://www.amazon.com/dp/B0FJ2BRTT6/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                        <a href="https://www.amazon.com/dp/B0BDLN6JDJ/?tag=livingwithfay-20" target="_blank" rel="noopener" 
                            class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
                             Buy Directly on Amazon
                         </a>
                     </div>
                 </div>
             </div>
-            <a href="./B0FJ2BRTT6/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+            <a href="./B0BDLN6JDJ/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
+        </div>
+        <div class="group relative bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm card-hardware-scale flex flex-col justify-between overflow-hidden">
+            <div class="flex flex-col h-full">
+                <div class="aspect-square bg-stone-50 rounded-xl mb-4 p-4 flex items-center justify-center relative overflow-hidden">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/417yhSWLGHL.jpg" alt="Cooking Utensils Set,18-Piece Kitchen Utensils and Knife Set,Khiki" width="500" height="500" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain mix-blend-multiply" onerror="handleImgError(this)">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <h3 class="font-bold text-stone-900 text-base leading-snug mb-5 line-clamp-2 transition-colors group-hover:text-emerald-800">
+                        Cooking Utensils Set,18-Piece Kitchen Utensils and Knife Set,Khiki
+                    </h3>
+                    <div class="space-y-2 mt-auto">
+                        <span class="block w-full py-3 bg-stone-50 text-stone-600 font-bold text-sm text-center rounded-xl transition-all duration-300 group-hover:bg-emerald-800 group-hover:text-white">
+                            Read Our Deep Dive Review
+                        </span>
+                        <a href="https://www.amazon.com/dp/B0BDFB55B3/?tag=livingwithfay-20" target="_blank" rel="noopener" 
+                           class="relative z-30 block w-full py-3 bg-[#f7ca00] hover:bg-[#f5b800] text-stone-900 font-bold text-sm text-center rounded-xl transition-colors shadow-sm">
+                            Buy Directly on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="./B0BDFB55B3/" class="absolute inset-0 z-10" aria-label="Review page links"></a>
         </div>
         </div>
     </main>
